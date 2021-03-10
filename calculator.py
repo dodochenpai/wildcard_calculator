@@ -1,37 +1,36 @@
 import re
 import numpy
 
-def calculateRange(addresses):
+def calculateRange(ipAddress, wildcardMask):
     # enter string in format x.x.x.x x.x.x.x
 
     # regex for finding all numbers
-    numbers = re.findall('\d*[^.]', addresses)
+    ipAddress = re.findall('\d*[^.]', ipAddress)
+    wildcardMask = re.findall('\d*[^.]', wildcardMask)
     output = []
-
     # for each octet in address
     for i in range(0, 4):
         # ip address octets and equivalent wildcard octet
         # are stored separated by 4
-        ipValue = numbers[i]
-        wildcardValue = numbers[i + 4]
 
         # if its 0, it has to be same as ip value
-        if wildcardValue == '0':
-            output.append(int(ipValue))
+        if wildcardMask[i] == '0':
+            output.append(int(ipAddress[i]))
         # if its 255, it can be anything
-        elif wildcardValue == '255':
+        elif wildcardMask[i] == '255':
             output.append('x')
         # otherwise find the range
         else:
-            output.append(findRange(int(ipValue), int(wildcardValue)))
+            output.append(findRange(int(ipAddress[i]), int(wildcardMask[i])))
 
+    print(output)
     return output
 
-def findRange(ipValue, wildcardValue):
+def findRange(ipAddress, wildcardMask):
     outputRange = []
     # for each possible value of the ip address
     for i in range(0, 256):
-        if (i | wildcardValue) == (wildcardValue | ipValue):
+        if (i | wildcardMask) == (wildcardMask | ipAddress):
             outputRange.append(i)
 
     return outputRange
@@ -56,7 +55,10 @@ def calculateWildcard(addresses):
         outputWC.append(bitwiseOperate(ipTable[i])[0])
         outputIP.append(bitwiseOperate(ipTable[i])[1])
 
-    return [outputIP, outputWC]
+    outputIP = intListToStr(outputIP)
+    outputWC = intListToStr(outputWC)
+
+    return (outputIP, outputWC)
 
 def bitwiseOperate(ipList):
     binaryTable = []
@@ -129,3 +131,9 @@ def calculateBinary(number):
         for i in range(0, numFill):
             binaryList.insert(0, 0)
     return binaryList
+
+def intListToStr(inputList):
+    for i in range(0, len(inputList)):
+        inputList[i] = str(inputList[i])
+
+    return '.'.join(inputList)

@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '6z4*@g$m8^-pd=$^w##$0q8z+hya@w8r^3bac(k%j20t@6t%dp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['172.105.166.14', 'digitalepidemics.com']
+ALLOWED_HOSTS = ['172.105.166.14', 'digitalepidemics.com', '127.0.0.1']
 
 
 # Application definition

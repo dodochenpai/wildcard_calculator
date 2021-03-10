@@ -19,8 +19,6 @@ from . import calculator
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
-    path('', calculator.home),
-    path('calculator/', calculator.home),
-    path('range/', calculator.range, name = 'range'),
-    path('wildcard/', calculator.wildcard, name='wildcard'),
+    path('', calculator.calculate, name = 'home'),
+    path('calculator/', calculator.calculate, name = 'calculate'),
 ]
