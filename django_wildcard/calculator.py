@@ -27,8 +27,3 @@ def calculate(request):
         pass
 
     return render(request, 'calculator.html')
-
-def range(request):
-    addresses = request.GET['addresses']
-    output = calculateRange(addresses)
-    return render(request, "output.html", {'output':output})

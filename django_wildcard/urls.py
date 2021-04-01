@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import calculator
+from . import login
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
     path('', calculator.calculate, name = 'home'),
     path('calculator/', calculator.calculate, name = 'calculate'),
+    path('login/', login.login, name = 'login'),
 ]
