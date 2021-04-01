@@ -1,7 +1,5 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from calculator import calculateRange
-from calculator import calculateWildcard
 
 
 def login(request):
