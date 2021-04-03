@@ -23,4 +23,5 @@ urlpatterns = [
     path('', calculator.calculate, name = 'home'),
     path('calculator/', calculator.calculate, name = 'calculate'),
     path('login/', login.login, name = 'login'),
+    path('login_csrf/', login.login_csrf, name='login_csrf')
 ]
