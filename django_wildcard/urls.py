@@ -17,11 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from . import calculator
 from . import login
+from . import prankpatrol
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
     path('', calculator.calculate, name = 'home'),
     path('calculator/', calculator.calculate, name = 'calculate'),
     path('login/', login.login, name = 'login'),
-    path('login_csrf/', login.login_csrf, name='login_csrf')
+    path('login_csrf/', login.login_csrf, name='login_csrf'),
+    path('prankpatrol/', prankpatrol.prankpatrol, name='prankpatrol')
+
 ]
