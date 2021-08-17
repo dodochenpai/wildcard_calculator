@@ -18,6 +18,7 @@ from django.urls import path
 from . import calculator
 from . import login
 from . import prankpatrol
+from . import command
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
@@ -26,4 +27,5 @@ urlpatterns = [
     path('login/', login.login, name = 'login'),
     path('login_csrf/', login.login_csrf, name='login_csrf'),
     path('prankpatrol/', prankpatrol.prankpatrol, name='prankpatrol'),
+    #path('command/', command.command, name='command'),
 ]

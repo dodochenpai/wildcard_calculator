@@ -10,7 +10,7 @@ def login(request):
         if username == 'admin' and password == 'password1':
             return HttpResponse('Successful Login')
         else:
-            return HttpResponse('Unsuccessful Login')
+            return render(request, 'login.html', {'password_status':'Invalid password'})
     except:
         pass
 
@@ -20,7 +20,7 @@ def login_csrf(request):
     try:
         username = request.POST['username']
         password = request.POST['password']
-        if username == 'admin' and password == 'password1':
+        if username == 'admin' and password == 'fuckyou':
             return HttpResponse('Successful Login')
         else:
             return HttpResponse('Unsuccessful Login')
