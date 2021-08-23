@@ -1,6 +1,8 @@
 
 from django.http import HttpResponse
 from django.shortcuts import render
+import re
+import numpy
 
 def calculate(request):
 
@@ -20,9 +22,6 @@ def calculate(request):
         pass
 
     return render(request, 'calculator.html')
-
-import re
-import numpy
 
 def calculateRange(ipAddress, wildcardMask):
     # enter string in format x.x.x.x x.x.x.x

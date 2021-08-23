@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from . import calculator
+from django_wildcard import calculator
+from django_wildcard import home
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
-    #path('', home.home, name = 'home'),
+    path('', home.home, name = 'home'),
     path('calculator/', calculator.calculate, name = 'calculate'),
 ]
